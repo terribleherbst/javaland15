@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>MongoDB </title>
+		<title>Java and OnePage Applications </title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Jörg Herbst">
@@ -50,71 +50,99 @@
 
                                 <section>
 					<section>
-						<h2>About me</h2>
-						<p class="fragment roll-in">Java Developer since 0.92</p>
+						<h2>Jörg Herbst</h2>
+						<p class="fragment roll-in">Java since JDK 0.92</p>
 						<p class="fragment roll-in">Professional since 2002</p>
 						<p class="fragment roll-in">JavaScript since 2014</p>
-						<p class="fragment roll-in">github: terribleherbst</p>
-						<p class="fragment roll-in">@terrible_herbst</p>
+						<p class="fragment"><small>twitter:@terrible_herbst <br>github: terribleherbst</small></p>
 					</section>
                                 </section>
                 
 
-				<section>
+				<section> 
 					<h2>The grass is alway greener...</h2>
-				</section>
-
-				<section>
-					<h2>Beyond the Java ocean</h2>
-					<p class="fragment">AngularJS has short roundtrips</p>
-					<p class="fragment">NodeJS is complete none blocking</p>
-					<p class="fragment">Almost every major page uses JS</p>
+					<p class="fragment roll-in highlight-green" data-fragment-index="1">Short round trips</p>
+					<p class="fragment roll-in highlight-green" data-fragment-index="3">None blocking IO with node</p>
+					<p class="fragment roll-in highlight-green" data-fragment-index="5" >Present on low cost hosting</p>
+					<p class="fragment roll-in highlight-red" data-fragment-index="2">Deployment und compilation</p>
+					<p class="fragment roll-in highlight-red" data-fragment-index="4">Servlet API</p>
+					<p class="fragment roll-in highlight-red" data-fragment-index="6">Heavy application server</p>
 				</section>
 
 				<section>
 					<h2>What Java has to offer</h2>
 					<p class="fragment">Great stable core libraries</p>
-					<p class="fragement">Professional managed frameworks</p>
+					<p class="fragment">Professional managed frameworks</p>
 					<p class="fragment">Great virtual maschine</p>
 					<p class="fragment">An awsome community</p>
 				</section>
-
+                
 				<section>
-					<h2>What means no backend</h2>
-					<section>
-						<p class="fragment">There is always a backend</p>
-						<p class="fragment">But it is not your stuff</p>
-						<p class="fragment">One frontend, multiple backend</p>
-					</section>
+					<h2>What happend before</h2>
+                    <ol>
+					<li class="fragment">We don't need no JavaScript</p>
+					<li class="fragment">Extending Servlet based approach</p>
+					<li class="fragment">Compile JavaScript</p>
+					<li class="fragment">Java Backend - JavaScript Frontend</p>
+                    </ol>
 				</section>
 
 				<section>
-					<h2>The world has changed</h2>
+					<h2>No Javascript</h2>
 					<section>
-						<p class="fragment">JavaScript is on every major sitze<p>
-						<p class="fragment">There is <a href="http://www.ecma-international.org/ecma-262/5.1/">ECMA</a></p>
-						<p class="fragment">Building with Grunt<</p>
-						<p class="fragment">Testing with Karma and Jasmine</p>
+						<p class="fragment">Poor useabilty</p>
+						<p class="fragment">Slow interaction</p>
+						<p class="fragment">Lots of roundtrips</p>
+                        <p class="fragment">Search engine visible</p>
 					</section>
-
+				</section>
+                
+				<section>
+					<h2>Exending Servlets</h2>
+					<section>
+						<p class="fragment">Better useabilty</p>
+						<p class="fragment">Slow interaction</p>
+						<p class="fragment">Lots of roundtrips</p>
+                        <p class="fragment">Difficult to maintain</p>
+                        <p class="fragment">Search engine visible</p>
+					</section>
+				</section>
+                
+				<section>
+					<h2>Compile JavaScript</h2>
+						<p class="fragment">Better useabilty</p>
+						<p class="fragment">Good interaction</p>
+						<p class="fragment">Few roundtrips</p>
+                        <p class="fragment">Difficult beside the basics</p>
+                        <p class="fragment">Vendor lock in (GWT or Vaadin)</p>
+				</section>                
 
 				<section>
-					<h2>The Idea</h2>
-					<p>Java Backend - JavaScript Frontend</p>
-					<p>REST communication via JSON</p>
-					<p>AngularJS Frontend</p>
-					<p>Ratpack Backend</p>
-
+					<h2>Best of both world</h2>
+					<h2>Java Backend - JavaScript Frontend</h2>
+                    <ul>
+					<li>AngularJS Frontend</li>
+					<li>REST communication via JSON</li>
+					<li>Ratpack Backend</li>
+                </ul>
 				</section>
-
+                
 				<section>
 					<h2>The Challenge</h2>
 					<p>Maintainable Frontend</p>
 					<p>Testable Code</p>
 					<p>Performance and Scalability</p>
-					<p>Market experience</p>
-				</section>
-
+					<p>Vendor idependence</p>
+				</section>                
+                
+				<section>
+					<h2>The world has changed</h2>
+						<p class="fragment">JavaScript is on every major site</p>
+						<p class="fragment">There is Standard Comitee <a href="http://www.ecma-international.org/ecma-262/5.1/">ECMA</a></p>
+                        <p class="fragment">There is <a href="#">npm</a> as a Package Manager</p>
+						<p class="fragment">There are build systems like <a href="http://gruntjs.com/">Grunt</a></p>
+						<p class="fragment">Testing frameworks exists <a href="http://karma-runner.github.io/">Karma</a> and <a href="https://jasmine.github.io/2.2/introduction.html">Jasmine</a></p>
+					</section>
 
 				<section>
 					<h2>AngularJS</h2>
@@ -133,19 +161,87 @@
 					
 				</section>
                 
+                <section>
+                    					<h2>AngularJS</h2>
+<pre><code>
+function BookListCtrl($scope, $http, $templateCache) {
+   $scope.listBooks = function() {
+ 		$http({method: 'GET', url: './api/book', cache: $templateCache}).
+ 		success(function(data, status, headers, config) {
+ 	    	$scope.books = data;                  //set view model
+ 	    	$scope.view = './Partials/list.html'; //set to list view
+ 		}).
+ 		error(function(data, status, headers, config) {
+ 			$scope.books = data || "Request failed";
+ 			$scope.status = status;
+ 			$scope.view = './Partials/list.html';
+ 		});
+  		}
+}
+BookListCtrl.$inject = ['$scope', '$http', '$templateCache'];
+</code></pre>
+                </section>
+                
+				<section>
+					<h2>MVC</h2>
+					<p>Simple Angular Demo</h2>
+				</section>
+				<section>
+					<h2>Testing with Karma</h2>
+<pre><code>
+describe('myApp.view2 module', function() {
+
+  beforeEach(module('myApp.view2'));
+
+  describe('view2 controller', function(){
+
+    it('should ....', inject(function($controller) {
+      //spec body
+      var view2Ctrl = $controller('View2Ctrl');
+      expect(view2Ctrl).toBeDefined();
+    }));
+
+  });
+});
+</code></pre>    
+
+
+				</section>
+                <section>
+					<p>Simple Karma Demo</p>
+				</section>
 
 				<section>
-					<h2>No Pets in the store</h2>
-					<p>Classic JEE PetStore</p>
-					<p>There are also Enterprise Editions and Managed Service solutions out there.</p>
+					<h2>Ratpack</h2>
+					<p>Async IO using <a href="http://netty.io/">netty</a></p>
+					<p>Fast roundtrip using groovy</p>
+        			<p>Gradle< for easy builds</p>
+        			<p>Hystrix for managing micro services</p>
+        			<p>Jackson for JSON</p>
+        			<p>Not related to any type on Frontend</p>        
 				</section>
                 
+
+				<section>
+					<p>No more Pets in the store</p>
+					<p>Java Web is more than servlets</p>
+					<p>JVM ist more than Java</p>
+				</section>
+
+                <section>
+                    Simple Ratpack REST Demo
+                </section>
+                
+                <section>
+                    Complex Ratpack Application
+                </section>
+
 
 				<section style="text-align: left;">
 					<h1>THE END</h1>
 					<ul>
 						<li> <a href="http://www.10m.de">My Company</a> </li>
-                                                <li> <a href="http://www.joergherbst.de">My Blog</a> </li>
+                        <li> <a href="http://www.joergherbst.de">My Blog</a> </li>
 					</ul>
 				</section>
 
