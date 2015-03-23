@@ -41,14 +41,26 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Java and NoBackend</h1>
-					<h3>Best of Java and JavaScript</h3>
+					<h1>NoBackend in the Java World</h1>
+					<h3>A new generation ?</h3>
 					<p>
 						<small>Presentation by <a href="http://twitter.com/terribleherbst">Jörg Herbst</a> / <a href="http://www.10m.de">10m</a></small>
 					</p>
 				</section>
+                
+                <section>
+                    <h2>What Technoloy do you use?</h2>
+                    <ul>
+                        <li>Server Side Java</li>
+                        <li>Applets</li>
+                        <li>Client Javascript</li>
+                        <li>Groovy,Scala..</li>
+                        <li>Rhino,Nashorn</li>
+                        <li>Node.js IO.js</li> 
+                    </ul>
+                </section>
 
-                                <section>
+
 					<section>
 						<h2>Jörg Herbst</h2>
 						<p class="fragment roll-in">Java since JDK 0.92</p>
@@ -56,7 +68,6 @@
 						<p class="fragment roll-in">JavaScript since 2014</p>
 						<p class="fragment"><small>twitter:@terrible_herbst <br>github: terribleherbst</small></p>
 					</section>
-                                </section>
                 
 
 				<section> 
@@ -74,38 +85,34 @@
 					<p class="fragment">Great stable core libraries</p>
 					<p class="fragment">Professional managed frameworks</p>
 					<p class="fragment">Great virtual maschine</p>
-					<p class="fragment">An awsome community</p>
+					<p class="fragment">An awesome community</p>
 				</section>
                 
 				<section>
 					<h2>What happend before</h2>
                     <ol>
-					<li class="fragment">We don't need no JavaScript</p>
-					<li class="fragment">Extending Servlet based approach</p>
-					<li class="fragment">Compile JavaScript</p>
-					<li class="fragment">Java Backend - JavaScript Frontend</p>
+					<li class="fragment zoom">We don't need no JavaScript</p>
+					<li class="fragment zoom">Extending Servlet based approach</p>
+					<li class="fragment zoom">Compile JavaScript</p>
+					<li class="fragment zoom">Java Backend - JavaScript Frontend</p>
                     </ol>
 				</section>
 
 				<section>
 					<h2>No Javascript</h2>
-					<section>
 						<p class="fragment">Poor useabilty</p>
 						<p class="fragment">Slow interaction</p>
 						<p class="fragment">Lots of roundtrips</p>
                         <p class="fragment">Search engine visible</p>
-					</section>
 				</section>
                 
 				<section>
 					<h2>Exending Servlets</h2>
-					<section>
 						<p class="fragment">Better useabilty</p>
 						<p class="fragment">Slow interaction</p>
 						<p class="fragment">Lots of roundtrips</p>
                         <p class="fragment">Difficult to maintain</p>
                         <p class="fragment">Search engine visible</p>
-					</section>
 				</section>
                 
 				<section>
@@ -118,21 +125,20 @@
 				</section>                
 
 				<section>
-					<h2>Best of both world</h2>
 					<h2>Java Backend - JavaScript Frontend</h2>
                     <ul>
 					<li>AngularJS Frontend</li>
 					<li>REST communication via JSON</li>
 					<li>Ratpack Backend</li>
-                </ul>
+                    </ul>
 				</section>
                 
 				<section>
 					<h2>The Challenge</h2>
-					<p>Maintainable Frontend</p>
-					<p>Testable Code</p>
-					<p>Performance and Scalability</p>
-					<p>Vendor idependence</p>
+					<p class="fragment">Maintainable Frontend</p>
+					<p class="fragment">Testable Code</p>
+					<p class="fragment">Performance and Scalability</p>
+					<p class="fragment">Vendor idependence</p>
 				</section>                
                 
 				<section>
@@ -186,7 +192,8 @@ BookListCtrl.$inject = ['$scope', '$http', '$templateCache'];
 					<h2>MVC</h2>
 					<p>Simple Angular Demo</h2>
 				</section>
-				<section>
+				
+                <section>
 					<h2>Testing with Karma</h2>
 <pre><code>
 describe('myApp.view2 module', function() {
@@ -205,41 +212,60 @@ describe('myApp.view2 module', function() {
 });
 </code></pre>    
 
-
+<small>Source: <a href="https://github.com/angular/angular-seed">Angular Seed</a></small>
 				</section>
                 <section>
 					<p>Simple Karma Demo</p>
 				</section>
 
 				<section>
-					<h2>Ratpack</h2>
-					<p>Async IO using <a href="http://netty.io/">netty</a></p>
-					<p>Fast roundtrip using groovy</p>
-        			<p>Gradle< for easy builds</p>
-        			<p>Hystrix for managing micro services</p>
-        			<p>Jackson for JSON</p>
-        			<p>Not related to any type on Frontend</p>        
-				</section>
-                
-
-				<section>
+                    <h2>A Java Backend</h2>
+					<p>JVM ist more than Java</p>
 					<p>No more Pets in the store</p>
 					<p>Java Web is more than servlets</p>
-					<p>JVM ist more than Java</p>
+				</section>
+
+				<section>
+					<h2>Ratpack</h2>
+					<p>Async IO using <a href="http://netty.io/">netty</a></p>
+					<p>Fast roundtrip using <a href="http://www.groovy-lang.org/">groovy</a></p>
+        			<p><a href="http://www.gradle.org/">Gradle</a> for easy builds</p>
+        			<p><a href="https://github.com/Netflix/Hystrix">Hystrix</a> for managing micro services</p>
+        			<p><a href="https://github.com/FasterXML/jackson">Jackson</a> for JSON</p>
+        			<p>Not related to any type on Frontend</p>        
 				</section>
 
                 <section>
                     Simple Ratpack REST Demo
+                    <pre><code>
+        handler("talk/:id") {
+            def query = pathTokens["id"]
+            byMethod {
+                get {
+                    render json (talks.find { talk -> talk.id = query})
+                }
+                put {
+                    def talk = parse (fromJson(Talk))
+                    talks.put(query,talk)
+                }
+                delete {
+                    talks.remove(query)
+                }
+            }
+        }                        
+                    </code></pre>
+               <small>Source: <a href="https://github.com/angular/angular-seed">Angular Seed</a></small>     
                 </section>
                 
                 <section>
                     Complex Ratpack Application
                 </section>
 
-
 				<section style="text-align: left;">
 					<h1>THE END</h1>
 					<ul>
+                        <li> <a href="http://slides.com/gsklee/functional-programming-in-5-minutes">Functional Programming</a></li>
+
 						<li> <a href="http://www.10m.de">My Company</a> </li>
                         <li> <a href="http://www.joergherbst.de">My Blog</a> </li>
 					</ul>
