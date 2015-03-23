@@ -6,7 +6,7 @@
 
 		<title>Java and OnePage Applications </title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="description" content="An Architecture for Java based AngularJS applications">
 		<meta name="author" content="Jörg Herbst">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,33 +51,40 @@
                 <section>
                     <h2>What Technoloy do you use?</h2>
                     <ul>
-                        <li>Server Side Java</li>
-                        <li>Applets</li>
-                        <li>Client Javascript</li>
-                        <li>Groovy,Scala..</li>
-                        <li>Rhino,Nashorn</li>
-                        <li>Node.js IO.js</li> 
+                        <li class="fragment roll-in">Applets</li>
+                        <li class="fragment roll-in">Server Side Java</li>
+                        <li class="fragment roll-in">Client Javascript</li>
+                        <li class="fragment roll-in">Groovy,Scala..</li>
+                        <li class="fragment roll-in">Rhino,Nashorn</li>
+                        <li class="fragment roll-in">Node.js IO.js</li> 
                     </ul>
                 </section>
 
 
 					<section>
 						<h2>Jörg Herbst</h2>
-						<p class="fragment roll-in">Java since JDK 0.92</p>
-						<p class="fragment roll-in">Professional since 2002</p>
-						<p class="fragment roll-in">JavaScript since 2014</p>
+						<p class="fragment grow">Java since JDK 0.92</p>
+						<p class="fragment grow">Professional since 2002</p>
+						<p class="fragment grow">JavaScript since 2014</p>
 						<p class="fragment"><small>twitter:@terrible_herbst <br>github: terribleherbst</small></p>
 					</section>
                 
+                
+                <section>
+                    <h2>A word of warning</h2>
+                    <h3 class="fragment current-visible">There is Backend</h3>
+                    <h3 class="fragment current-visible">There is Frontend</h3>
+                    
+                </section>
 
 				<section> 
 					<h2>The grass is alway greener...</h2>
-					<p class="fragment roll-in highlight-green" data-fragment-index="1">Short round trips</p>
-					<p class="fragment roll-in highlight-green" data-fragment-index="3">None blocking IO with node</p>
-					<p class="fragment roll-in highlight-green" data-fragment-index="5" >Present on low cost hosting</p>
-					<p class="fragment roll-in highlight-red" data-fragment-index="2">Deployment und compilation</p>
-					<p class="fragment roll-in highlight-red" data-fragment-index="4">Servlet API</p>
-					<p class="fragment roll-in highlight-red" data-fragment-index="6">Heavy application server</p>
+					<p class="fragment" data-fragment-index="1"><span class="fragment highlight-green" data-fragment-index="1">Short round trips</span></p>
+					<p class="fragment " data-fragment-index="3"><span class="fragment highlight-green" data-fragment-index="3">None blocking IO with node</span></p>
+					<p class="fragment " data-fragment-index="5" ><span class="fragment highlight-green" data-fragment-index="5">Present on low cost hosting</span></p>
+					<p class="fragment " data-fragment-index="2"><span class="fragment highlight-red" data-fragment-index="2">Deployment und compilation</span></p>
+					<p class="fragment " data-fragment-index="4"><span class="fragment highlight-red" data-fragment-index="4">Servlet API</span></p>
+					<p class="fragment " data-fragment-index="6"><span class="fragment highlight-red" data-fragment-index="6">Heavy application server</span></p>
 				</section>
 
 				<section>
@@ -107,7 +114,7 @@
 				</section>
                 
 				<section>
-					<h2>Exending Servlets</h2>
+					<h2>Extending Servlets</h2>
 						<p class="fragment">Better useabilty</p>
 						<p class="fragment">Slow interaction</p>
 						<p class="fragment">Lots of roundtrips</p>
@@ -127,9 +134,9 @@
 				<section>
 					<h2>Java Backend - JavaScript Frontend</h2>
                     <ul>
-					<li>AngularJS Frontend</li>
-					<li>REST communication via JSON</li>
-					<li>Ratpack Backend</li>
+					<li>Javascript Frontend (i.e. AngularJS)</li>
+					<li>REST based JSON API</li>
+					<li>Java Backend (i.e. Ratpack.io)</li>
                     </ul>
 				</section>
                 
@@ -149,6 +156,17 @@
 						<p class="fragment">There are build systems like <a href="http://gruntjs.com/">Grunt</a></p>
 						<p class="fragment">Testing frameworks exists <a href="http://karma-runner.github.io/">Karma</a> and <a href="https://jasmine.github.io/2.2/introduction.html">Jasmine</a></p>
 					</section>
+
+				<section>
+					<h2>Why AngularJS</h2>
+                    <ul>
+                        <li>Clear declarative code</li>
+                        <li>Structure code with MVC</li>
+                        <li>Testable</li>
+                        <li>IDE Integration</li>
+                        <li>Great tools and support</li>
+                    </ul>
+                </section>
 
 				<section>
 					<h2>AngularJS</h2>
@@ -254,17 +272,32 @@ describe('myApp.view2 module', function() {
             }
         }                        
                     </code></pre>
-               <small>Source: <a href="https://github.com/angular/angular-seed">Angular Seed</a></small>     
+                    <small>Source: <a href="https://github.com/terribleherbst/ratpack-sampl">Ratpack REST</a></small>     
                 </section>
                 
                 <section>
-                    Complex Ratpack Application
+                    <h1>Conclusion</h1>
+                    <ul>
+                        <li>Development processes are language independent</li>
+                        <li>Build a state of the art server side Java Application</li>
+                        <li>Define a stable API</li>
+                        <li>Use professional JavaScript at the client</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Optional Demo: Ratpack Books</h1>
+                    <small>Source: <a href="https://github.com/terribleherbst/example-books.git">Ratpack with AngularJS</a></small>
                 </section>
 
 				<section style="text-align: left;">
-					<h1>THE END</h1>
+					<h1>Links</h1>
 					<ul>
                         <li> <a href="http://slides.com/gsklee/functional-programming-in-5-minutes">Functional Programming</a></li>
+                        <li> <a href="http://ratpack.io">Ratpack Framework</a></li>
+                        <li> <a href="https://angularjs.org/">AngularJS</a></li>
+                        <li> <a href="http://www.codeproject.com/Articles/637430/Angular-js-example-application">AngularJS sample app</a></li>
+                        <li> <a href="https://www.youtube.com/watch?v=kmVnhyWqozA">Groovy, Angular, Mongo all togehter</a></li>
 
 						<li> <a href="http://www.10m.de">My Company</a> </li>
                         <li> <a href="http://www.joergherbst.de">My Blog</a> </li>
